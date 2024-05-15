@@ -14,3 +14,6 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
     .catch(err => console.log(err))
 }
 
+fetch('/test')
+  .then(res => res.json())
+  .then(data => console.log(data))
