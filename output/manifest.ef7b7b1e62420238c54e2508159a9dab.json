@@ -1,0 +1,48 @@
+{
+  "icons": [
+    {
+      "src": "/icon_1024x1024.b2563d362f55ce1bb8d204018891d9fa.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon_512x512.4582306e3ca2aaebfa33c85617a5f4aa.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_384x384.30f211f5a6f147606416cb43065e472a.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_256x256.d025dcdae81a2e0fb07890c7b7fd20a6.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.714063a50be343986cd240145f204aa3.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.a5ed40b606e96fd035d8a033924e230e.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.ecf0e7f66ff665c9d9ef8fb5add74c48.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "Webpack First Website",
+  "short_name": "WPFW",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Our first Webpack PWA Website!",
+  "background_color": "#555",
+  "theme_color": "#fff"
+}

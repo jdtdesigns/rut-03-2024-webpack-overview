@@ -1,7 +1,9 @@
-const path = require('path');
+const path = require('path')
 const is_prod = process.env.NODE_ENV === 'production'
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 module.exports = {
   entry: './src/index.js',
@@ -16,6 +18,35 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html'
+    }),
+
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
+
+    new WebpackPwaManifest({
+      name: 'Webpack First Website',
+      short_name: 'WPFW',
+      description: 'Our first Webpack PWA Website!',
+      background_color: '#555',
+      publicPath: '/',
+      theme_color: '#fff',
+      ios: true,
+      crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+      icons: [
+        {
+          src: path.resolve('src/images/logo.png'),
+          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+        },
+        {
+          src: path.resolve('src/images/logo.png'),
+          size: '1024x1024',
+          purpose: 'maskable'
+        }
+      ]
     })
   ],
 
@@ -33,5 +64,17 @@ module.exports = {
         ],
       },
     ],
+  },
+
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'output'),
+    },
+    compress: true,
+    hot: true,
+    port: 3000,
+    watchFiles: {
+      paths: ['./index.html']
+    }
   },
 };

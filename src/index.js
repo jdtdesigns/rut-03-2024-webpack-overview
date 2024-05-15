@@ -8,4 +8,9 @@ const btn = document.querySelector('button')
 
 btn.addEventListener('click', increase)
 
-console.log('something new')
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log('Service worker registered/started!'))
+    .catch(err => console.log(err))
+}
+
